@@ -2,7 +2,7 @@ package ru.lewicki.taskmanagerspring.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.enumiration.TaskStatus;
+import ru.lewicki.taskmanagerspring.enumiration.TaskStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
