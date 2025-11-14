@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user", uniqueConstraints = {@UniqueConstraint(name = "user_id_unique", columnNames = "id")})
+@Table(name = "account", uniqueConstraints = {@UniqueConstraint(name = "user_id_unique", columnNames = "id")})
 public class User extends BaseEntity { // Класс пользователь наследуется от базовой сущности
     @Id
     @Column(name = "id", unique = true)
@@ -23,7 +23,7 @@ public class User extends BaseEntity { // Класс пользователь н
     private String lastname; // поле фамилия
     private String email; // поле почта
     // Лист для хранения тегов
-    private List<String> tags; // Поле лист упорядоченная колекция элементов в списке
+//    private List<String> tags; // Поле лист упорядоченная колекция элементов в списке
     @Setter(AccessLevel.NONE) // исключение для сеттера при использования правил метода
     private int age; // поле возраст
 
