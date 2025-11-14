@@ -1,14 +1,22 @@
 package ru.lewicki.taskmanagerspring.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "user", uniqueConstraints = {@UniqueConstraint(name = "user_id_unique", columnNames = "id")})
 public class User extends BaseEntity { // Класс пользователь наследуется от базовой сущности
+    @Id
+    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_generator")
+    @SequenceGenerator(name = "user_id_generator", sequenceName = "user_sequence_id", allocationSize = 1)
+    private long id;
 
     private String login; // поле логин
     private String firstname; // поле имя
