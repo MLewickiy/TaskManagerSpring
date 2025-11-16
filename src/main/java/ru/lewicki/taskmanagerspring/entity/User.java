@@ -22,8 +22,6 @@ public class User extends BaseEntity { // Класс пользователь н
     private String firstname; // поле имя
     private String lastname; // поле фамилия
     private String email; // поле почта
-    // Лист для хранения тегов
-//    private List<String> tags; // Поле лист упорядоченная колекция элементов в списке
     @Setter(AccessLevel.NONE) // исключение для сеттера при использования правил метода
     private int age; // поле возраст
 
