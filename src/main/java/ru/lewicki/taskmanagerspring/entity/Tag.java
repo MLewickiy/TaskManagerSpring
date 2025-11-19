@@ -41,7 +41,14 @@ public class Tag extends BaseEntity {
      * allocationSize = 1 — шаг увеличения значения. Означает: каждое новое значение = предыдущее +1.
      */
     private long id;
-//    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_id", referencedColumnName = "id")
+    private Task task;
 
     @Column(name = "tag", length = 128)
     private String tag;
