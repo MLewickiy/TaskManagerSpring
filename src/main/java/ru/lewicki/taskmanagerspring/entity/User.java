@@ -3,7 +3,6 @@ package ru.lewicki.taskmanagerspring.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 
 @Getter
 @Setter
