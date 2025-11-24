@@ -14,9 +14,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    public UserResponse create(UserSaveRequest userSaveRequest){
+    public UserResponse create(UserSaveRequest userSaveRequest) {
         User user = userRepository.save(userMapper.toEntity(userSaveRequest));
         return userMapper.toResponse(user);
     }
-}
 
+    public UserResponse getUserById(Long id) {
+        return userMapper.toResponse(userRepository.findById(id).orElseThrow());
+    }
+}
