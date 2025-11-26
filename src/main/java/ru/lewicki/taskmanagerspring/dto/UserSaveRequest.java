@@ -14,4 +14,6 @@ public class UserSaveRequest {
     private String login;
     private String firstname;
     private String lastname;
+    private String email;
+    private String age;
 }

@@ -1,21 +1,21 @@
 package ru.lewicki.taskmanagerspring.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-// Ответ
+
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
-public class UserResponse {
+@Setter
+public class TaskResponse {
 
     private Long id;
-    private String login;
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String age;
+    private String title;
+    private String description;
+    private String tags;
+
 }
