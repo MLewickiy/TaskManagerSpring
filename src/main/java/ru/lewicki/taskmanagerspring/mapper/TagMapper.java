@@ -14,7 +14,7 @@ public class TagMapper {
         return tag;
     }
 
-    public TagResponse toResponse(Tag tag) {
+    public static TagResponse toResponse(Tag tag) {
         TagResponse tagResponse = new TagResponse();
         tagResponse.setTag(tag.getTag());
         return tagResponse;
