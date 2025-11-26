@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.*;
 import ru.lewicki.taskmanagerspring.dto.UserResponse;
 import ru.lewicki.taskmanagerspring.dto.UserSaveRequest;
 import ru.lewicki.taskmanagerspring.entity.User;
+import ru.lewicki.taskmanagerspring.repository.UserRepository;
 import ru.lewicki.taskmanagerspring.service.UserService;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/user")
+@RequestMapping({"/user"})
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
@@ -21,7 +24,13 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserResponse getUserById(@PathVariable("id") Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<UserResponse> getUserById(@PathVariable("id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getUserById(id));
+
+    }
+
+    @GetMapping
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getAllUsers());
     }
 }

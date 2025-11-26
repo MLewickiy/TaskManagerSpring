@@ -1,12 +1,22 @@
 package ru.lewicki.taskmanagerspring.mapper;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import ru.lewicki.taskmanagerspring.dto.UserResponse;
 import ru.lewicki.taskmanagerspring.dto.UserSaveRequest;
 import ru.lewicki.taskmanagerspring.entity.User;
+import ru.lewicki.taskmanagerspring.repository.UserRepository;
+
+import java.util.List;
 
 @Component
 public class UserMapper {
+
+    private final UserRepository userRepository;
+
+    public UserMapper(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User toEntity(UserSaveRequest userSaveRequest) {
         User user = new User();
@@ -28,4 +38,12 @@ public class UserMapper {
         userResponse.setAge(String.valueOf(user.getAge()));
         return userResponse;
     }
+
+    public List<UserResponse> toDtoList(List<User> users) {
+        return users.stream()
+                .map(this::toResponse)
+                .toList();
+    }
+
+
 }

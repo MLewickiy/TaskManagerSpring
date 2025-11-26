@@ -8,6 +8,8 @@ import ru.lewicki.taskmanagerspring.entity.User;
 import ru.lewicki.taskmanagerspring.mapper.UserMapper;
 import ru.lewicki.taskmanagerspring.repository.UserRepository;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -21,5 +23,10 @@ public class UserService {
 
     public UserResponse getUserById(Long id) {
         return userMapper.toResponse(userRepository.findById(id).orElseThrow());
+    }
+
+    public List<UserResponse> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return userMapper.toDtoList(users);
     }
 }
