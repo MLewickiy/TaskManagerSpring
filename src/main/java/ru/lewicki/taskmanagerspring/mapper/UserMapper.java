@@ -7,7 +7,6 @@ import ru.lewicki.taskmanagerspring.entity.User;
 import ru.lewicki.taskmanagerspring.repository.UserRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
@@ -43,7 +42,6 @@ public class UserMapper {
     public List<UserResponse> toDtoList(List<User> users) {
         return users.stream()
                 .map(this::toResponse)
-                .collect(Collectors.toList());
-//                .toList();
+                .toList();
     }
 }
