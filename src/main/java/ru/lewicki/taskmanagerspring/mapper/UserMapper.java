@@ -19,27 +19,27 @@ public class UserMapper {
 
     public User toEntity(UserSaveRequest userSaveRequest) {
         User user = new User();
-        user.setLogin(userSaveRequest.getLogin());
-        user.setFirstname(userSaveRequest.getFirstname());
-        user.setLastname(userSaveRequest.getLastname());
-        user.setEmail(userSaveRequest.getEmail());
-        user.setAge(Integer.parseInt(userSaveRequest.getAge()));
+        user.setLogin(userSaveRequest.getLogin()); // Логин
+        user.setFirstname(userSaveRequest.getFirstname()); // Имя
+        user.setLastname(userSaveRequest.getLastname());// Фамилия
+        user.setEmail(userSaveRequest.getEmail()); // Почта
+        user.setAge(Integer.parseInt(userSaveRequest.getAge())); // Возраст
 
         return user;
     }
 
     public UserResponse toResponse(User user) {
         UserResponse userResponse = new UserResponse();
-        userResponse.setLogin(user.getLogin());
-        userResponse.setFirstname(user.getFirstname());
-        userResponse.setLastname(user.getLastname());
-        userResponse.setEmail(user.getEmail());
-        userResponse.setAge(user.getAge());
+        userResponse.setLogin(user.getLogin()); // Логин
+        userResponse.setFirstname(user.getFirstname()); // Имя
+        userResponse.setLastname(user.getLastname()); // Фамилия
+        userResponse.setEmail(user.getEmail()); // Почта
+        userResponse.setAge(user.getAge()); // Возраст
 
         return userResponse;
     }
 
-    public List<UserResponse> toDtoList(List<User> users) {
+    public List<UserResponse> toDtoList(List<User> users) { // Запрос пользователей
         return users.stream()
                 .map(this::toResponse)
                 .toList();

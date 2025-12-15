@@ -21,11 +21,11 @@ public class UserService {
         return userMapper.toResponse(user);
     }
 
-    public UserResponse getUserById(Long id) {
+    public UserResponse getUserById(Long id) { // Запрос одного пользователя по id
         return userMapper.toResponse(userRepository.findById(id).orElseThrow());
     }
 
-    public List<UserResponse> getAllUsers() {
+    public List<UserResponse> getAllUsers() { // Запрос всех пользователей
         List<User> users = userRepository.findAll();
         return userMapper.toDtoList(users);
     }

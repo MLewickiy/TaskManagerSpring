@@ -6,8 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.lewicki.taskmanagerspring.dto.UserResponse;
 import ru.lewicki.taskmanagerspring.dto.UserSaveRequest;
-import ru.lewicki.taskmanagerspring.entity.User;
-import ru.lewicki.taskmanagerspring.repository.UserRepository;
 import ru.lewicki.taskmanagerspring.service.UserService;
 
 import java.util.List;
